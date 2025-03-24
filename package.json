@@ -1,0 +1,24 @@
+{
+  "name": "login",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/pedrohf-dev/login-page#readme",
+  "bugs": {
+    "url": "https://github.com/pedrohf-dev/login-page/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedrohf-dev/login-page.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server/server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "nodemon": "^3.1.9"
+  }
+}
