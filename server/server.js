@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const path = require('path')
+const Login = require('./models/model')
 require('dotenv').config();
 
 const app = express()
@@ -18,4 +19,11 @@ app.get('/', (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`Server running on PORT: ${PORT}`)
+})
+
+app.post('/save-info', async (req,res) => {
+    const {user, password} = req.body
+    const saveLogin = new Login({user, password})
+    await saveLogin.save()
+    res.json(saveLogin)
 })

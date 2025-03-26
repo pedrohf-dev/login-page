@@ -9,11 +9,12 @@
 <body>
     <h1 id="title">Login</h1>
     <div class="forms-container">
-        <form id="login-form">
-            <input type="text" id="user" placeholder="Usuário">
-            <input type="text" id="password" placeholder="Senha">
+        <form id="login-form" onkeydown="if(event.keyCode === 13) {
+             return false;}">
+            <input type="text" id="user" placeholder="Usuário" required>
+            <input type="text" id="password" placeholder="Senha" required>
             <div id="buttons">
-                <button id="register" type="submit">Registrar</button>
+                <button id="register" type="submit" >Registrar</button>
                 <button id="login" type="submit">Login</button>
             </div>
         </form>
