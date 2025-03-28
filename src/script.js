@@ -15,10 +15,33 @@ registerButton.addEventListener('click', async (e) => {
     e.preventDefault();
     if(!validateInputs()) return
 
-    console.log('user: ' + user.value);
-    console.log('password: ' + password.value);
+    const response = await fetch('/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            user: user.value,
+            password: password.value
+        })
 
-    const response = await fetch('/save-info', {
+    });
+
+    if (!response.ok) {
+        const errorData = await response.json()
+        alert(errorData.error)
+        return
+    }
+    
+    user.value = '';
+    password.value = '';
+    alert('Registro feito')
+
+});
+
+loginButton.addEventListener('click', async (e) => {
+    e.preventDefault();
+    if(!validateInputs()) return
+
+    const response = await fetch('/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -27,8 +50,15 @@ registerButton.addEventListener('click', async (e) => {
         })
     });
 
+    if (!response.ok) {
+        const errorData = await response.json()
+        alert(errorData.error)
+        return
+    }
+    
     user.value = '';
     password.value = '';
+    alert('Login bem sucedido')
+    window.location.href = '/new';
 
 });
-
