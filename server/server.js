@@ -1,5 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const bcrypt = require('bcrypt')
 const path = require('path')
 const Login = require('./models/model')
 require('dotenv').config();
@@ -23,7 +24,8 @@ app.listen(PORT, () => {
 
 app.post('/save-info', async (req,res) => {
     const {user, password} = req.body
-    const saveLogin = new Login({user, password})
+    const hashedPassword = await bcrypt.hash(req.body.password, 10)
+    const saveLogin = new Login({user, password: hashedPassword})
     await saveLogin.save()
     res.json(saveLogin)
 })

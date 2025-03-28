@@ -9,13 +9,12 @@
 <body>
     <h1 id="title">Login</h1>
     <div class="forms-container">
-        <form id="login-form" onkeydown="if(event.keyCode === 13) {
-             return false;}">
+        <form id="login-form">
             <input type="text" id="user" placeholder="Usuário" required>
             <input type="text" id="password" placeholder="Senha" required>
             <div id="buttons">
-                <button id="register" type="submit" >Registrar</button>
-                <button id="login" type="submit">Login</button>
+                <button id="register" type="button" >Registrar</button>
+                <button id="login" type="button">Login</button>
             </div>
         </form>
     </div>
